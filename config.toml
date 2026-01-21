@@ -1,0 +1,36 @@
+theme = "github_dark_dimmed"
+
+[editor]
+line-number = "relative"
+mouse = true
+cursorline = true
+#lsp.display-inlay-hints = true
+
+# Turn on LSP-powered completion
+auto-completion = true           # shows popup as you type
+completion-timeout = 100         # how quickly after typing to show it
+preview-completion-insert = true # preview selection inline
+completion-trigger-len = 1       # how many chars before popup triggers
+
+# other existing settings
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.auto-save]
+focus-lost = true
+after-delay.enable = true
+after-delay.timeout = 3000
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+
+[keys.insert]
+j = {k = "normal_mode"}
+
+[keys.normal]
+"ret" = "goto_word"
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+
