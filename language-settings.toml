@@ -13,32 +13,40 @@ command = ["golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1
 
 
 # Python
-[[language]]
-name = "python"
-scope = "source.python"
-auto-format = true
-indent = { tab-width = 4, unit = " " }
-formatter = { command = "black", args = ["-", "-q"] }
-roots = ["pyproject.toml", "pyrightconfig.json", "Poetry.lock"]
-
 [language-server.pyright]
 command = "pyright-langserver"
 args = ["--stdio"]
+
 [language-server.pyright.config]
-lint = true
-inlayHint.enable = true
+python.analysis.venvPath = "."
+python.analysis.venv = ".venv"
+python.analysis.lint = true
+python.analysis.inlayHint.enable = true
+python.analysis.autoSearchPaths = true
+python.analysis.diagnosticMode = "workspace"
+python.analysis.useLibraryCodeForType = true
+python.analysis.logLevel = "Error"
+python.analysis.typeCheckingMode = "off"
+python.analysis.autoImoprtCompletion = true
+python.analysis.reportOptionalSubscript = false
+python.analysis.reportOptionalMemberAccess = false
 
-[language-server.ruff-lsp]
-command = "ruff-lsp"
-args = ["--stdio"]
+[language-server.ruff]
+command = "ruff"
+args = ["server", "-q", "--preview"] 
 
-# Enable ruff via pylsp plugin (if using pylsp)
-[language-server.pylsp.config.pylsp.plugins.ruff]
-lineLength = 88
-preview = true
-select = ["E4", "E7", "E9", "F"]
-ignore = ["D210"]
-
+[[language]]
+name = "python"
+scope = "source.python"
+injection-regex = "python"
+file-types = ["py", "pyi", "py3", "pyw", "ptl", "rpy", "cpy", "ipy", "pyt", { glob = ".python_history" }, { glob = ".pythonstartup" }, { glob = ".pythonrc" }, { glob = "SConstruct" }, { glob = "SConscript" }]
+shebangs = ["python"]
+roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json", "requirements.txt", ".venv/"]
+comment-token = "#"
+language-servers = [ {name = "pyright", except-features=["diagnostics"]}, "ruff" ]
+indent = { tab-width = 4, unit = "    " }
+auto-format = true
+formatter =  { command = "bash", args = ["-c", "ruff format --line-length 80 -q . && black --line-length 80 -q -"] }
 
 # Rust
 [[language]]
