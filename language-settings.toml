@@ -11,6 +11,21 @@ language-servers = [ "gopls" ]
 [language-server.golangci-lint-lsp.config]
 command = ["golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1"]
 
+[language-server.gopls]
+command = "gopls"
+
+[language-server.gopls.config]
+completeUnimported = true
+usePlaceholders = true
+
+[language-server.gopls.config.hints]
+assignVariableType = true
+compositeLiteralFields = true
+compositeLiteralTypes = true
+constantValues = true
+functionTypeParameters = true
+parameterNames = true
+rangeVariableTypes = true
 
 # Python
 [language-server.pyright]
