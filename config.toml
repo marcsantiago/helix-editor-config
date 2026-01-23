@@ -29,6 +29,10 @@ cursor-line = "hint"
 
 [keys.insert]
 j = {k = "normal_mode"}
+C-h = "move_char_left"
+C-l = "move_char_right"
+C-j = "move_line_down"
+C-k = "move_line_up"
 
 [keys.normal]
 "ret" = "goto_word"
