@@ -4,6 +4,7 @@ theme = "github_dark_dimmed"
 line-number = "relative"
 mouse = true
 cursorline = true
+#auto-format = true
 #lsp.display-inlay-hints = true
 
 # Turn on LSP-powered completion
@@ -34,3 +35,5 @@ j = {k = "normal_mode"}
 C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 
+[editor.file-picker]
+hidden = false
