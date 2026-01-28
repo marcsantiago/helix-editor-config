@@ -4,6 +4,7 @@ theme = "github_dark_dimmed"
 line-number = "relative"
 mouse = true
 cursorline = true
+bufferline = "always"
 #auto-format = true
 #lsp.display-inlay-hints = true
 
