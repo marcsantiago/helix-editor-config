@@ -103,3 +103,15 @@ command = "clippy"
 
 [language-server.rust-analyzer.config.cargo]
 features = "all"
+
+
+# Markdown
+[language-server.marksman]
+command = "marksman"
+
+[language-server.markdown-oxide]
+command = "markdown-oxide"
+
+[[language]]
+name = "markdown"
+language-servers = ["marksman", "markdown-oxide"]
