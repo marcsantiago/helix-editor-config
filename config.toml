@@ -5,14 +5,23 @@ line-number = "relative"
 mouse = true
 cursorline = true
 bufferline = "always"
-#auto-format = true
-#lsp.display-inlay-hints = true
+true-color = true
+rulers = [120]
+# Minimum severity to show a diagnostic after the end of a line
+end-of-line-diagnostics = "hint"
+
 
 # Turn on LSP-powered completion
 auto-completion = true           # shows popup as you type
 completion-timeout = 100         # how quickly after typing to show it
 preview-completion-insert = true # preview selection inline
 completion-trigger-len = 1       # how many chars before popup triggers
+
+[editor.lsp]
+# Disable automatically popups of signature parameter help
+auto-signature-help = false
+# Show LSP messages in the status line
+display-messages = true
 
 # other existing settings
 [editor.cursor-shape]
@@ -26,7 +35,16 @@ after-delay.enable = true
 after-delay.timeout = 3000
 
 [editor.inline-diagnostics]
-cursor-line = "hint"
+cursor-line = "error" # Show inline diagnostics when the cursor is on the line
+other-lines = "disable" # Don't expand diagnostics unless the cursor is on the line
+
+
+[editor.indent-guides]
+character = "╎"
+render = true
+
+[editor.statusline]
+left = ["mode", "spinner", "version-control", "file-name"]
 
 [keys.insert]
 j = {k = "normal_mode"}
@@ -47,6 +65,8 @@ C-y = [
   ':open %sh{cat /tmp/unique-file}',
   ':redraw',
 ]
+
+C-space = "signature_help"
 
 [editor.file-picker]
 hidden = false
