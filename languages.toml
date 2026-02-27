@@ -3,7 +3,7 @@
 name = "go"
 roots = ["go.work", "go.mod"]
 auto-format = true
-formatter = ["gofmt"]
+formatter = ["goimports"]
 comment-token = "//"
 
 # addinf lint-lsp github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.10.1
