@@ -5,8 +5,6 @@ roots = ["go.work", "go.mod"]
 auto-format = true
 formatter = ["goimports"]
 comment-token = "//"
-
-# addinf lint-lsp github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.10.1
 language-servers = ["gopls", "golangci-lint-lsp"]
 
 # Primary Go language server
@@ -23,7 +21,6 @@ usePlaceholders = true
 command = "golangci-lint-langserver"
 
 [language-server.golangci-lint-lsp.config]
-# Make sure this matches how golangci-lint outputs JSON
 command = ["golangci-lint", "run", "--output.json.path", "stdout", "--show-stats=false", "--issues-exit-code=1"]
 
 # Python
