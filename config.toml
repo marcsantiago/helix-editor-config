@@ -57,6 +57,7 @@ C-k = "move_line_up"
 "ret" = "goto_word"
 C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+
 # Yazi
 C-y = [
   ':sh rm -f /tmp/unique-file',
@@ -70,3 +71,7 @@ C-space = "signature_help"
 
 [editor.file-picker]
 hidden = false
+# requires a .ignore file in the root, good for ignoring vendor/
+ignore = true
+git-ignore = true
+git-global = true
