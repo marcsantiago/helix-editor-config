@@ -1,3 +1,4 @@
-# Helix Configurations
+# Configurations
 
-My basic setup for helix-editor
+- helix-editor
+- kitty termimal
