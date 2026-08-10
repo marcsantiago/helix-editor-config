@@ -101,9 +101,13 @@ ignore = true
 git-ignore = true
 git-global = true
 
-
 [keys.normal.space]
+# B Displays git blame
 B = ":echo %sh{hash=$(git blame -L \"%{cursor_line}\",+1 \"%{buffer_name}\" 2>/dev/null | awk '{print $1}'); if [ -z \"$hash\" ]; then echo \"(Untracked file)\"; elif echo \"$hash\" | grep -q '^0\\+$'; then echo \"(Uncommitted changes)\"; else git show -s --format='%%h %%an: %%s' \"$hash\" | sed 's/%%/%%%%/g'; fi}"
+# Space + q force closes the current buffer (discards unsaved changes)
+q = ":buffer-close!"
+# Space + Q force quits Helix entirely
+Q = ":quit!"
 
 [keys.normal.space.t]
 c = ":pipe ccase --to camel"
