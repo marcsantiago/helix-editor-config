@@ -3,7 +3,7 @@
 name = "go"
 roots = ["go.work", "go.mod"]
 auto-format = true
-formatter = ["goimports"]
+formatter = { command = "goimports" }
 comment-token = "//"
 language-servers = ["gopls", "golangci-lint-lsp"]
 
@@ -12,7 +12,6 @@ language-servers = ["gopls", "golangci-lint-lsp"]
 command = "gopls"
 
 [language-server.gopls.config]
-# You can customize gopls settings here if needed
 completeUnimported = true
 usePlaceholders = true
 
