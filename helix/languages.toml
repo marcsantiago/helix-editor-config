@@ -1,3 +1,6 @@
+[language-server.typos]
+command = "typos-lsp"
+
 # Go language configuration
 [[language]]
 name = "go"
@@ -5,7 +8,7 @@ roots = ["go.work", "go.mod"]
 auto-format = true
 formatter = { command = "goimports" }
 comment-token = "//"
-language-servers = ["gopls", "golangci-lint-lsp"]
+language-servers = ["gopls", "golangci-lint-lsp", "typos"]
 
 # Primary Go language server
 [language-server.gopls]
@@ -54,7 +57,8 @@ formatter = { command = "black", args = ["--quiet", "-"] }
 # Use both pyright and ruff as language servers
 language-servers = [
     { name = "pyright", except-features = ["diagnostics"] },
-    "ruff"
+    "ruff",
+    "typos"
 ]
 
 # pyright language server config
@@ -88,7 +92,7 @@ name = "rust"
 file-types = ["rs"]
 roots = ["Cargo.toml"]
 auto-format = true
-language-servers = ["rust-analyzer"]
+language-servers = ["rust-analyzer", "typos"]
 #formatter = { command = "rustfmt"}
 #formatter = { command = "cargo", args = ["fmt"] }
 
@@ -108,4 +112,4 @@ command = "markdown-oxide"
 
 [[language]]
 name = "markdown"
-language-servers = ["marksman", "markdown-oxide"]
+language-servers = ["marksman", "markdown-oxide", "typos"]
